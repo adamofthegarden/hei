@@ -159,5 +159,3 @@ hei <- function(tf){
 
   tf
 }
-
-file.exists("~/.ssh/id_rsa.pub")
