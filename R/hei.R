@@ -1,4 +1,15 @@
-hei <- function(tf){
+#' Calculate Healthy Eating Index (HEI) 2015 scores:
+#' total and components 1 through 13
+#' @param df data.frame
+#'
+#' @return data.frame
+#' @export
+#'
+#'
+#'
+#'
+#'
+hei <- function(df){
 
   # sums and names#####
   sum.in.asa <- c("F_TOTAL",
@@ -27,24 +38,24 @@ hei <- function(tf){
                   "PF_SEAFD_HI",
                   "PF_SEAFD_LOW")
 
-  tf[, to.numeric] <- sapply(tf[, to.numeric],
+  df[, to.numeric] <- sapply(df[, to.numeric],
                              as.numeric)
 
-  tf$FWHOLEFRT <- with(tf, F_CITMLB+
+  df$FWHOLEFRT <- with(df, F_CITMLB+
                          F_OTHER)
-  tf$MONOPOLY <- with(tf, MFAT+
+  df$MONOPOLY <- with(df, MFAT+
                         PFAT)
-  tf$VTOTALLEG <- with(tf, V_TOTAL+
+  df$VTOTALLEG <- with(df, V_TOTAL+
                          V_LEGUMES)
-  tf$VDRKGRLEG <- with(tf, V_DRKGR+
+  df$VDRKGRLEG <- with(df, V_DRKGR+
                          V_LEGUMES)
-  tf$PFALLPROTLEG <- with(tf,
+  df$PFALLPROTLEG <- with(df,
                           PF_MPS_TOTAL+
                             PF_EGGS+
                             PF_NUTSDS+
                             PF_SOY+
                             PF_LEGUMES)
-  tf$PFSEAPLANTLEG <- with(tf,
+  df$PFSEAPLANTLEG <- with(df,
                            PF_SEAFD_HI+
                              PF_SEAFD_LOW+
                              PF_NUTSDS+
@@ -88,8 +99,8 @@ hei <- function(tf){
             0.8)
 
   for (i in seq(dnames)){
-    kcal <- tf$KCAL
-    den <- tf[, tnames[i]]/(kcal/1000)
+    kcal <- df$KCAL
+    den <- df[, tnames[i]]/(kcal/1000)
     mfac <- ifelse(dnames[i] %in% c("WGRNDEN", "DAIRYDEN"),
                    10,
                    5)
@@ -99,17 +110,17 @@ hei <- function(tf){
                 ifelse(den %in% 0,
                        0,
                        c))
-    tf[, paste0("HEI2015", cnames1to8[i])] <- c
-    tf[, dnames[i]] <- den
+    df[, paste0("HEI2015_", cnames1to8[i])] <- c
+    df[, dnames[i]] <- den
   }
 
   # component 9####
-  FARATIO <-  tf$MONOPOLY/tf$SFAT
+  FARATIO <-  df$MONOPOLY/df$SFAT
   FARMIN <- 1.2
   FARMAX <- 2.5
-  c9 <- paste0("HEI2015",
+  c9 <- paste0("HEI2015_",
                "C9_FATTYACID")
-  tf[, c9] <- with(tf,
+  df[, c9] <- with(df,
                    ifelse(SFAT == 0 & MONOPOLY == 0, 0,
                           ifelse(SFAT == 0 & MONOPOLY > 0, 10,
                                  ifelse(FARATIO >= FARMAX, 10,
@@ -144,8 +155,8 @@ hei <- function(tf){
                    ifelse(intake %in% c("ADD_SUGARS"), 16,
                           1))
 
-    den <- percentify*mfac*tf[, intakes[i]]/(kcal/k.units)
-    tf[, paste0("HEI2015", cnames10to13[i])] <- ifelse(den <= mins[i], 10,
+    den <- percentify*mfac*df[, intakes[i]]/(kcal/k.units)
+    df[, paste0("HEI2015_", cnames10to13[i])] <- ifelse(den <= mins[i], 10,
                                                        ifelse(den >= maxs[i], 0,
                                                               10 - (10*(den - mins[i])/(maxs[i] - mins[i]))))
   }
@@ -154,8 +165,8 @@ hei <- function(tf){
                          c(cnames1to8,
                            "C9_FATTYACID",
                            cnames10to13)))
-  tf[tf$KCAL %in% 0, components] <- 0
-  tf$HEI2015_TOTAL_SCORE <- rowSums(tf[, components])
+  df[df$KCAL %in% 0, components] <- 0
+  df$HEI2015_TOTAL_SCORE <- rowSums(df[, components])
 
-  tf
+  df
 }

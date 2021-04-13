@@ -1,16 +1,18 @@
 Package: hei
-Title: What the Package Does (One Line, Title Case)
+Title: Calculate HEI-2015 Scores Using ASA-24 Data
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Adam",
+           family = "Sadowski",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+           email = "asebsadowski@gmail.com",
+           comment = c(ORCID = "https://orcid.org/0000-0002-8023-9227"))
+Description: Manual Healthy Eating Index (HEI) scoring using ASA-24 hour diet recall is extra work you may not want to commit to at this moment. Sometimes you just want a function to attach those total and component score variables for you!
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
