@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "asebsadowski@gmail.com",
            comment = c(ORCID = "https://orcid.org/0000-0002-8023-9227"))
-Description: Manual Healthy Eating Index (HEI) scoring using ASA-24 hour diet recall is extra work you may not want to commit to at this moment. Sometimes you just want a function to attach those total and component score variables for you!
+Description: Healthy Eating Index (HEI) scoring is not the simplest of calculations. This package contains a function to compute HEI total and component scores from ASA-24 hour diet recall data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

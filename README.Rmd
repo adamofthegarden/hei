@@ -1,0 +1,58 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# hei
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Healthy Eating Index (HEI) scoring is not the simplest of calculations. This package contains a function to compute HEI total and component scores from ASA-24 hour diet recall data.
+
+
+## Installation
+
+You can install the released version of hei from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("hei")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("AdamSadowski/hei")
+```
+
+## Example
+
+`hei()` creates HEI variables for each row. It accepts a data frame and returns it with these added variables. 
+
+```{r example}
+library(hei)
+
+asa.df <- read.csv("asa_example_df.csv")
+
+asa.df
+```
+
+
+
+```{r}
+df <- hei(asa.df)
+
+df[, grep("X|HEI", names(df))]
+
+```
