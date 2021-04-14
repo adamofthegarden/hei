@@ -36,9 +36,13 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("AdamSadowski/hei")
 ```
 
-## Example
 
-`hei()` creates HEI variables for each row. It accepts a data frame and returns it with these added variables. 
+
+## Quick demo
+
+Adding HEI columns to the end of a data frame via `hei()`:
+
+1) Example data:
 
 ```{r example}
 library(hei)
@@ -48,10 +52,12 @@ asa.df <- read.csv(".\\tests\\testthat\\asa_example_df.csv")
 asa.df
 ```
 
-
+2) `hei()` creates HEI variables for each row. It accepts a data frame and returns it with these added variables. 
 
 ```{r}
 df <- hei(asa.df)
+
+# grep just to show X and HEI variables
 
 df[, grep("X|HEI", names(df))]
 
