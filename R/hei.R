@@ -161,7 +161,7 @@ hei <- function(df){
                                                               10 - (10*(den - mins[i])/(maxs[i] - mins[i]))))
   }
 
-  components <- c(paste0("HEI2015",
+  components <- c(paste0("HEI2015_",
                          c(cnames1to8,
                            "C9_FATTYACID",
                            cnames10to13)))

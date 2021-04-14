@@ -9,7 +9,7 @@
 
 Healthy Eating Index (HEI) scoring is not the simplest of calculations.
 This package contains a function to compute HEI total and component
-scores from ASA-24 hour diet recall data.
+scores from ASA 24-hour diet recall data.
 
 ## Installation
 
@@ -35,7 +35,7 @@ returns it with these added variables.
 ``` r
 library(hei)
 
-asa.df <- read.csv("asa_example_df.csv")
+asa.df <- read.csv(".\\tests\\testthat\\asa_example_df.csv")
 
 asa.df
 #>   X     KCAL      PROT      TFAT     CARB     MOIS      ALC     CAFF     THEO
@@ -152,34 +152,10 @@ df[, grep("X|HEI", names(df))]
 #> 3           1.093372                0.7606059         2.727190
 #> 4           0.000000               10.0000000         3.508490
 #> 5           0.000000               10.0000000         0.000000
-#>   HEI2015_C13_ADDSUG HEI2015C1_TOTALVEG HEI2015C2_GREEN_AND_BEAN
-#> 1          10.000000                 NA                       NA
-#> 2           7.736649                 NA                       NA
-#> 3           8.948291                 NA                       NA
-#> 4          10.000000                 NA                       NA
-#> 5          10.000000                 NA                       NA
-#>   HEI2015C3_TOTALFRUIT HEI2015C4_WHOLEFRUIT HEI2015C5_WHOLEGRAIN
-#> 1                   NA                   NA                   NA
-#> 2                   NA                   NA                   NA
-#> 3                   NA                   NA                   NA
-#> 4                   NA                   NA                   NA
-#> 5                   NA                   NA                   NA
-#>   HEI2015C6_TOTALDAIRY HEI2015C7_TOTPROT HEI2015C8_SEAPLANT_PROT
-#> 1                   NA                NA                      NA
-#> 2                   NA                NA                      NA
-#> 3                   NA                NA                      NA
-#> 4                   NA                NA                      NA
-#> 5                   NA                NA                      NA
-#>   HEI2015C9_FATTYACID HEI2015C10_SODIUM HEI2015C11_REFINEDGRAIN HEI2015C12_SFAT
-#> 1                  NA                NA                      NA              NA
-#> 2                  NA                NA                      NA              NA
-#> 3                  NA                NA                      NA              NA
-#> 4                  NA                NA                      NA              NA
-#> 5                  NA                NA                      NA              NA
-#>   HEI2015C13_ADDSUG HEI2015_TOTAL_SCORE
-#> 1                NA                  NA
-#> 2                NA                  NA
-#> 3                NA                  NA
-#> 4                NA                  NA
-#> 5                NA                  NA
+#>   HEI2015_C13_ADDSUG HEI2015_TOTAL_SCORE
+#> 1          10.000000            67.55899
+#> 2           7.736649            64.93424
+#> 3           8.948291            53.50095
+#> 4          10.000000            73.03422
+#> 5          10.000000            56.77601
 ```

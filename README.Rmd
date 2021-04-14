@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Healthy Eating Index (HEI) scoring is not the simplest of calculations. This package contains a function to compute HEI total and component scores from ASA-24 hour diet recall data.
+Healthy Eating Index (HEI) scoring is not the simplest of calculations. This package contains a function to compute HEI total and component scores from ASA 24-hour diet recall data.
 
 
 ## Installation
@@ -43,7 +43,7 @@ devtools::install_github("AdamSadowski/hei")
 ```{r example}
 library(hei)
 
-asa.df <- read.csv("asa_example_df.csv")
+asa.df <- read.csv(".\\tests\\testthat\\asa_example_df.csv")
 
 asa.df
 ```

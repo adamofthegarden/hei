@@ -20,6 +20,9 @@ test_that("hei() creates HEI variables", {
 #                  paste0("HEI2015_",
 #                         hei.comp))
 
+
+
+
   expect_type(hei(asa.df),
            "list")
   expect_s3_class(hei(asa.df),
