@@ -1,5 +1,6 @@
 test_that("hei() creates HEI variables", {
-  asa.df <- read.csv("asa_example_df.csv")
+
+    asa.df <- read.csv("asa_example_df.csv")
 #
 #   hei.comp <- c("C1_TOTALVEG",
 #                 "C2_GREEN_AND_BEAN",
