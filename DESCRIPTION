@@ -1,6 +1,6 @@
 Package: hei
 Title: Calculate HEI-2015 Scores Using ASA-24 Data
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person(given = "Adam",
            family = "Sadowski",
