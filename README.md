@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.com/AdamSadowski/hei.svg?branch=master)](https://travis-ci.com/AdamSadowski/hei)
 <!-- badges: end -->
 
 Healthy Eating Index (HEI) scoring is not the simplest of calculations.

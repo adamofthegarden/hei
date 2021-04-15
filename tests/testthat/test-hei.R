@@ -1,6 +1,6 @@
 test_that("hei() outputs the input data frame with additional HEI scoring variables", {
 
-  x <- read.csv(".\\tests\\testthat\\asa_example_df.csv")
+  x <- read.csv("asa_example_df.csv")
   names.components <- c("C1_TOTALVEG",
                         "C2_GREEN_AND_BEAN",
                         "C3_TOTALFRUIT",
